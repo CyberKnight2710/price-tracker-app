@@ -1,0 +1,109 @@
+/* static/style.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: #007bff; /* Primary blue color */
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* --- Main Containers --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Add the container class to your index.html body content if desired */
+/* For now, we'll style the direct elements: */
+h1 {
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+/* --- Product List and Cards --- */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.product-card {
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #28a745; /* Green highlight for tracked status */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.product-card h3 {
+    margin-top: 0;
+    color: #343a40;
+}
+
+.product-card a {
+    display: inline-block;
+    margin: 5px 0;
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* --- Form Styling --- */
+.add-product-form form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    margin-bottom: 30px;
+}
+
+.add-product-form input[type="text"],
+.add-product-form input[type="url"],
+.add-product-form input[type="number"],
+.add-product-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+/* --- Buttons --- */
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.product-card button {
+    background-color: #28a745; /* Green for View History button */
+    margin-top: 10px;
+    width: 100%;
+}
+
+.product-card button:hover {
+    background-color: #1e7e34;
+}

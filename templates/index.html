@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Price Tracker Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="add-product-form">
+    <h2>Add New Product to Track</h2>
+    <form id="addProductForm">
+        <input type="text" name="name" placeholder="Product Name (e.g., Laptop XYZ)" required>
+        <input type="url" name="url" placeholder="Full Product URL (starts with http/https)" required>
+        <input type="number" name="target_price" placeholder="Target Price (e.g., 500.00)" step="0.01" required>
+        <input type="email" name="user_email" placeholder="Email for Price Drop Alerts" required>
+        <button type="submit">Start Tracking</button>
+    </form>
+</div>
+<hr>
+    <h1>My Price Tracker Dashboard</h1>
+
+    <div class="product-list">
+        <h2>Tracked Products</h2>
+        {% for product in products %}
+        <div class="product-card">
+            <h3>{{ product[1] }}</h3> <p>Target Price: ₹ {{ product[3] }}</p> <a href="{{ product[2] }}" target="_blank">View Product</a>
+            
+            <button onclick="loadChart({{ product[0] }}, '{{ product[1] }}')">
+                View Price History
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="chart-container" style="width: 80%; margin: 20px auto;">
+        <h2 id="chart-title"></h2>
+        <canvas id="priceChart"></canvas>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </div>
+</body>
+</html>
