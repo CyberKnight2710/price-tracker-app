@@ -14,15 +14,14 @@ import atexit
 
 app = Flask(__name__)
 
-# --- Database Configuration (Use your real credentials here) ---
-# --- Database Configuration (Loaded from Environment Variables) ---
+# --- Database Configuration (Load Environment Variable) ---
+# NOTE: This variable is set by the Render service!
 DB_URL = os.environ.get("DATABASE_URL")
 
-# Check for the DB URL, essential for deployment
 if DB_URL is None:
-    # Fallback for local testing only (use your full local connection string)
-    # Note: Render often requires a small modification to the URL format
-    DB_URL = "postgresql://postgres:YOUR_PASSWORD@localhost/price_tracker_db"
+    # Fallback to local configuration for development/local testing only
+    print("WARNING: Using local database fallback configuration.")
+    DB_URL = "postgresql://postgres:YOUR_LOCAL_PASSWORD@localhost/price_tracker_db?sslmode=disable"
 
 # --- Database Connection Management (Best Practice) ---
 def get_db_connection():
